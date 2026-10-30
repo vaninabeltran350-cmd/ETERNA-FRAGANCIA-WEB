@@ -5,14 +5,26 @@ import fs from 'node:fs';
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url));
 
-export default defineConfig({
- server: {
-  allowedHosts: ['polirrubro.test'],
-  https: {
-    key: fs.readFileSync(resolve(rootDir, 'polirrubro.test-key.pem')),
-    cert: fs.readFileSync(resolve(rootDir, 'polirrubro.test.pem'))
-  }
-},
+export default defineConfig(({ command }) => {
+  const keyPath = resolve(rootDir, 'polirrubro.test-key.pem');
+  const certPath = resolve(rootDir, 'polirrubro.test.pem');
+  const localCertificatesAvailable =
+    command === 'serve' &&
+    fs.existsSync(keyPath) &&
+    fs.existsSync(certPath);
+
+  return {
+    server: {
+      allowedHosts: ['polirrubro.test'],
+      ...(localCertificatesAvailable
+        ? {
+            https: {
+              key: fs.readFileSync(keyPath),
+              cert: fs.readFileSync(certPath)
+            }
+          }
+        : {})
+    },
   build: {
     rollupOptions: {
       input: {
@@ -25,4 +37,5 @@ export default defineConfig({
       }
     }
   }
+  };
 });
