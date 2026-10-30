@@ -295,6 +295,23 @@
 
 /* 4. CELULARES GRANDES Y TABLETS PEQUEÑAS (481px - 768px) */
 @media (max-width: 768px) {
+    body.cart-body {
+        align-items: stretch;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+    }
+
+    body.cart-body > .header,
+    body.cart-body > .cart-container,
+    body.cart-body > .footer {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        flex: 0 0 auto;
+    }
+
     /* Header Móvil */
     .header-container {
         flex-wrap: wrap;
