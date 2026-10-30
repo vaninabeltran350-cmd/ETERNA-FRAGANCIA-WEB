@@ -1,0 +1,447 @@
+/* ==========================================
+   MODALES - ETERNA FRAGANCIA
+   ========================================== */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+    padding: var(--spacing-md);
+    overflow: auto;
+}
+
+.modal.hidden {
+    display: none !important;
+    opacity: 0;
+}
+
+.modal-content {
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    max-width: 650px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    border: 1px solid var(--color-gold-border);
+}
+
+.modal-content.modal-large {
+    max-width: 800px;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: scale(0.94) translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--color-light-gray);
+    color: var(--color-primary-black);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background-color: #ef4444;
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+
+/* Cuerpo del Modal de Producto */
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 1.75rem;
+    padding: 2rem;
+}
+
+.modal-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-light-gray);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    height: clamp(220px, 42vw, 360px);
+    min-height: 0;
+    border: 1px solid var(--color-border);
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.modal-image-gallery {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.modal-image-gallery.hidden { display: none; }
+
+.modal-image-control,
+.modal-image-dot {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.modal-image-control {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    background: rgba(90, 70, 80, 0.5);
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    line-height: 22px;
+}
+
+.modal-image-dots {
+    display: flex;
+    gap: 5px;
+}
+
+.modal-image-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.modal-image-dot.active {
+    border-color: #D69BAA;
+    background: #D69BAA;
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modal-category {
+    font-size: 0.75rem;
+    color: var(--color-primary-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.35rem;
+}
+
+.modal-info h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-primary-black);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.modal-price {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-primary-black);
+    margin-bottom: 0.5rem;
+}
+
+.modal-availability {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.modal-availability.available {
+    color: var(--color-success);
+}
+
+.modal-availability.sold-out {
+    color: var(--color-error);
+}
+
+.modal-description {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.modal-actions-wrap {
+    margin-top: auto;
+}
+
+.btn-add-to-cart {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    background: var(--gold-gradient);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: none;
+}
+
+.btn-add-to-cart:hover {
+    background: var(--color-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-sm);
+}
+
+.btn-add-to-cart:disabled {
+    background: var(--color-medium-gray);
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Modal de Detalles de Pedido en Dashboard */
+#orderModalContent {
+    padding: 2rem;
+}
+
+#orderModalContent h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0.75rem;
+    color: var(--color-primary-black);
+}
+
+.detail-group {
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+    background-color: var(--color-light-gray);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+}
+
+.detail-group h3 {
+    margin-bottom: 0.75rem;
+    color: var(--color-primary-black);
+    font-size: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.85rem;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #64748b;
+}
+
+.detail-value {
+    color: var(--color-primary-black);
+    font-weight: 700;
+}
+
+.order-items-list {
+    background-color: var(--color-light-gray);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--color-border);
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item-name {
+    font-weight: 700;
+    color: var(--color-primary-black);
+    font-size: 0.9rem;
+}
+
+.order-item-qty {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.order-item-price {
+    font-weight: 800;
+    color: var(--color-primary-gold);
+    font-size: 0.95rem;
+}
+
+.status-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #ffffff;
+    border: 2px solid var(--color-primary-gold);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.btn-confirm {
+    flex: 1;
+    padding: 0.75rem 1.25rem;
+    background: var(--gold-gradient);
+    color: var(--color-primary-black);
+    font-weight: 700;
+    border-radius: var(--border-radius);
+}
+
+.btn-cancel-modal {
+    flex: 1;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--color-light-gray);
+    color: var(--color-text-dark);
+    font-weight: 600;
+    border-radius: var(--border-radius);
+}
+
+/* Ajuste visual Eterna Fragancia */
+:root:not([data-theme="dark"]) .modal { background-color: rgba(90, 70, 80, 0.22); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+:root:not([data-theme="dark"]) .modal-content { background: #FFFFFF; border-color: #F0D9E1; box-shadow: 0 12px 30px rgba(90, 70, 80, 0.12); }
+:root:not([data-theme="dark"]) .modal-image,
+:root:not([data-theme="dark"]) .detail-group,
+:root:not([data-theme="dark"]) .order-items-list { background: #FFF8FA; border-color: #F0D9E1; }
+:root:not([data-theme="dark"]) .modal-info h2,
+:root:not([data-theme="dark"]) .modal-price,
+:root:not([data-theme="dark"]) #orderModalContent h2 { color: #5A4650; }
+:root:not([data-theme="dark"]) .btn-add-to-cart,
+:root:not([data-theme="dark"]) .btn-confirm { background: #C98298; color: #FFFFFF; }
+:root:not([data-theme="dark"]) .btn-add-to-cart:hover,
+:root:not([data-theme="dark"]) .btn-confirm:hover { background: #B9758B; }
+
+/* Paleta final Eterna Fragancia para detalle de producto y pedidos. */
+:root:not([data-theme="dark"]) .modal {
+    background-color: rgba(99, 76, 86, 0.24);
+}
+:root:not([data-theme="dark"]) .modal-content {
+    background: #FFFFFF;
+    border-color: #F1DDE2;
+    box-shadow: 0 12px 30px rgba(99, 76, 86, 0.14);
+}
+:root:not([data-theme="dark"]) .modal-image,
+:root:not([data-theme="dark"]) .detail-group,
+:root:not([data-theme="dark"]) .order-items-list { background: #FFF9F6; border-color: #EAD3D8; }
+:root:not([data-theme="dark"]) .modal-info h2,
+:root:not([data-theme="dark"]) .modal-price,
+:root:not([data-theme="dark"]) #orderModalContent h2 { color: #634C56; }
+:root:not([data-theme="dark"]) .modal-description,
+:root:not([data-theme="dark"]) .detail-label,
+:root:not([data-theme="dark"]) .order-item-qty { color: #8C737D; }
+:root:not([data-theme="dark"]) .modal-close { background: #F1DDE2; color: #634C56; }
+:root:not([data-theme="dark"]) .modal-close:hover { background: #D69BAA; color: #634C56; }
+:root:not([data-theme="dark"]) .detail-item,
+:root:not([data-theme="dark"]) .order-item { border-bottom-color: #F1DDE2; }
+:root:not([data-theme="dark"]) .status-select { background: #FFFFFF; color: #634C56; border-color: #D69BAA; }
+:root:not([data-theme="dark"]) .btn-add-to-cart,
+:root:not([data-theme="dark"]) .btn-confirm { background: #D69BAA; color: #634C56; }
+:root:not([data-theme="dark"]) .btn-add-to-cart:hover,
+:root:not([data-theme="dark"]) .btn-confirm:hover { background: #C98B9B; }
+
+:root[data-theme="dark"] .modal {
+    background-color: rgba(45, 31, 38, 0.72);
+}
+:root[data-theme="dark"] .modal-content {
+    background: #604B55;
+    border-color: #92717C;
+    box-shadow: 0 20px 40px rgba(45, 31, 38, 0.38);
+    color: #FFF9F6;
+}
+:root[data-theme="dark"] .modal-image,
+:root[data-theme="dark"] .detail-group,
+:root[data-theme="dark"] .order-items-list { background: #55424B; border-color: #92717C; }
+:root[data-theme="dark"] .modal-info h2,
+:root[data-theme="dark"] .modal-price,
+:root[data-theme="dark"] #orderModalContent h2,
+:root[data-theme="dark"] .detail-value,
+:root[data-theme="dark"] .order-item-name { color: #FFF9F6; }
+:root[data-theme="dark"] .modal-description,
+:root[data-theme="dark"] .detail-label,
+:root[data-theme="dark"] .order-item-qty { color: #F1DDE2; }
+:root[data-theme="dark"] .modal-close { background: #795C67; color: #FFF9F6; }
+:root[data-theme="dark"] .modal-close:hover { background: #D69BAA; color: #4A3941; }
+:root[data-theme="dark"] .detail-item,
+:root[data-theme="dark"] .order-item { border-bottom-color: #92717C; }
+:root[data-theme="dark"] .status-select { background: #4A3941; color: #FFF9F6; border-color: #D69BAA; caret-color: #FFF9F6; }
+:root[data-theme="dark"] .btn-add-to-cart,
+:root[data-theme="dark"] .btn-confirm { background: #D69BAA; color: #4A3941; }
+:root[data-theme="dark"] .btn-add-to-cart:hover,
+:root[data-theme="dark"] .btn-confirm:hover { background: #E1B9C3; }
+

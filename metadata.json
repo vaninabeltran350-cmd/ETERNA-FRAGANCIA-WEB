@@ -1,0 +1,6 @@
+{
+  "name": "ETERNA FRAGANCIA",
+  "description": "Tienda online ETERNA FRAGANCIA con catálogo interactivo, carrito, checkout con WhatsApp y panel de administración.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

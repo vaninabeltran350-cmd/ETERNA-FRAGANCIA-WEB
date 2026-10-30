@@ -1,0 +1,436 @@
+/* ==========================================
+   HEADER Y NAVEGACIÓN - ETERNA FRAGANCIA
+   ========================================== */
+
+.header {
+    background-color: var(--color-card-bg);
+    color: var(--color-text-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 12px rgba(64, 52, 58, 0.06);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.85rem var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+}
+
+/* Logo R&B */
+.logo-container {
+    flex-shrink: 0;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    opacity: 0.92;
+    transform: scale(1.02);
+}
+
+.logo-badge {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-primary-black);
+    background: transparent;
+    letter-spacing: 1px;
+    padding: 0.25rem 0.55rem;
+    border: 1px solid var(--color-powdered-rose);
+    border-radius: 50%;
+    width: 2.35rem;
+    height: 2.35rem;
+    justify-content: center;
+    box-shadow: none;
+    line-height: 1;
+}
+
+.logo-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    color: var(--color-primary-black);
+    line-height: 1.1;
+}
+
+.logo-tagline {
+    font-size: 0.65rem;
+    letter-spacing: 1.2px;
+    color: var(--color-gold-dark);
+    text-transform: uppercase;
+}
+
+/* Buscador Central */
+.search-container {
+    flex: 1;
+    max-width: 580px;
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-icon-left {
+    position: absolute;
+    left: 1rem;
+    color: var(--color-text-muted);
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.65rem 1rem 0.65rem 2.6rem;
+    background-color: var(--color-card-bg);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    transition: var(--transition);
+}
+
+.search-input::placeholder {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+}
+
+.search-input:focus {
+    background-color: var(--color-card-bg);
+    border-color: var(--color-primary-gold);
+    box-shadow: 0 0 0 3px rgba(183, 127, 146, 0.18);
+}
+
+/* Botón y Navegación de Vuelta */
+.header-center-nav {
+    display: flex;
+    align-items: center;
+}
+
+.back-btn {
+    color: var(--color-gold-dark);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-light-gray);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    transition: var(--transition);
+}
+
+.back-btn:hover {
+    background-color: var(--color-gold-light);
+    border-color: var(--color-primary-gold);
+    color: var(--color-gold-dark);
+    text-decoration: none;
+}
+
+/* Header Actions / Carrito */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-shrink: 0;
+}
+
+.search-icon-left svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
+
+.theme-toggle {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--color-gold-dark);
+    font-size: 1rem;
+}
+
+.theme-toggle:hover { background: transparent; color: var(--color-primary-gold); opacity: 0.8; }
+.theme-toggle .theme-icon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.theme-icon-sun { display: none; }
+.theme-toggle.is-dark .theme-icon-moon { display: none; }
+.theme-toggle.is-dark .theme-icon-sun { display: block; }
+
+.cart-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    transition: var(--transition);
+    text-decoration: none;
+    color: var(--color-text-dark);
+}
+
+.cart-link:hover {
+    background: transparent;
+    color: var(--color-gold-dark);
+    transform: none;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.cart-link.active {
+    background: transparent;
+    color: var(--color-gold-dark);
+}
+
+.cart-icon-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-icon { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -12px;
+    background-color: var(--color-error);
+    color: #ffffff;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 4px;
+    border-radius: var(--border-radius-pill);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 800;
+    border: 2px solid #ffffff;
+    box-shadow: none;
+}
+
+.cart-label {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Dashboard Header */
+.dashboard-header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.btn-store-link {
+    color: var(--color-gold-dark);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    padding: 0.45rem 1rem;
+    background: var(--color-gold-light);
+    border: 1px solid var(--color-gold-border);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.btn-store-link:hover {
+    background: var(--color-powdered-rose, #f1dfe5);
+    color: var(--color-gold-dark);
+    text-decoration: none;
+}
+
+.btn-logout {
+    background-color: #dc2626;
+    color: #ffffff;
+    padding: 0.45rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-logout:hover {
+    background-color: #b91c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+/* Login Header */
+.login-header {
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+    position: static;
+    padding: var(--spacing-lg) 0;
+}
+
+.login-header .header-container {
+    justify-content: center;
+}
+
+/* Ajuste visual Eterna Fragancia — claro, liviano y artesanal */
+:root:not([data-theme="dark"]) .header {
+    background: #FFFFFF;
+    border-bottom-color: #F0D9E1;
+    box-shadow: 0 2px 12px rgba(90, 70, 80, 0.045);
+}
+
+:root:not([data-theme="dark"]) .logo-badge {
+    background: #FFF9F5;
+    color: #A9657A;
+    border: 1px solid #E5B8C8;
+}
+
+:root:not([data-theme="dark"]) .logo-title { color: #5A4650; }
+:root:not([data-theme="dark"]) .logo-tagline { color: #A9657A; }
+
+:root:not([data-theme="dark"]) .search-input {
+    background: #FFF9F5;
+    border-color: #F0D9E1;
+}
+
+:root:not([data-theme="dark"]) .search-input:focus {
+    background: #FFFFFF;
+    border-color: #C98298;
+    box-shadow: 0 0 0 3px rgba(201, 130, 152, 0.12);
+}
+
+:root:not([data-theme="dark"]) .cart-link,
+:root:not([data-theme="dark"]) .theme-toggle { color: #887780; }
+:root:not([data-theme="dark"]) .cart-link:hover,
+:root:not([data-theme="dark"]) .theme-toggle:hover { color: #C98298; }
+:root:not([data-theme="dark"]) .cart-count { background: #C98298; }
+
+:root[data-theme="dark"] .header {
+    background: var(--color-light-gray);
+    border-bottom-color: var(--color-border);
+    box-shadow: 0 2px 12px rgba(45, 31, 38, 0.2);
+}
+:root[data-theme="dark"] .logo-badge { color: var(--color-gold-dark); border-color: var(--color-border); }
+:root[data-theme="dark"] .logo-title { color: var(--color-text-dark); }
+:root[data-theme="dark"] .logo-tagline { color: var(--color-gold-dark); }
+:root[data-theme="dark"] .search-input { background: var(--color-card-bg); border-color: var(--color-border); color: var(--color-text-dark); }
+:root[data-theme="dark"] .search-input:focus { background: var(--color-card-bg); border-color: var(--color-primary-gold); box-shadow: 0 0 0 3px rgba(214, 155, 170, 0.24); }
+:root[data-theme="dark"] .cart-link,
+:root[data-theme="dark"] .theme-toggle { color: var(--color-gold-dark); }
+
+:root[data-theme="dark"] .logo-badge { border-right-color: var(--color-border); }
+
+/* Logo oficial transparente: solo tamaño y alineación, sin alterar la imagen. */
+img.logo-badge {
+    display: block;
+    width: 58px;
+    height: 58px;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    background: transparent;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.footer-logo img.logo-badge { width: 92px; }
+
+@media (max-width: 768px) {
+    img.logo-badge { width: 44px; height: 44px; }
+    .footer-logo img.logo-badge { width: 82px; }
+}
+
+@media (max-width: 480px) {
+    img.logo-badge { width: 44px; height: 44px; }
+    .footer-logo img.logo-badge { width: 72px; }
+}
+
+/* Composición refinada del header para Eterna Fragancia */
+.header-container { padding-top: 0.55rem; padding-bottom: 0.55rem; }
+.logo { gap: 0.8rem; }
+.logo-title { font-size: 1.02rem; letter-spacing: 2.8px; }
+.logo-tagline { margin-top: 0.22rem; font-size: 0.58rem; letter-spacing: 1.7px; }
+.search-container { max-width: 500px; }
+.search-input { border-radius: 5px; padding-top: 0.58rem; padding-bottom: 0.58rem; }
+.header-actions { gap: 0.9rem; }
+.cart-link { padding-left: 0.55rem; padding-right: 0.55rem; }
+.cart-label { font-weight: 600; letter-spacing: 0.35px; }
+
+/* Paleta final Eterna Fragancia */
+:root:not([data-theme="dark"]) .header {
+    background: #FFF9F5;
+    border-bottom-color: #E8B9C5;
+    box-shadow: 0 2px 12px rgba(99, 76, 86, 0.06);
+}
+:root:not([data-theme="dark"]) .search-input {
+    background: #FFFFFF;
+    border-color: #EAD3D8;
+    color: #62535C;
+}
+:root:not([data-theme="dark"]) .search-input:focus {
+    background: #FFFFFF;
+    border-color: #E8B9C5;
+    box-shadow: 0 0 0 3px rgba(214, 155, 170, 0.2);
+}
+:root:not([data-theme="dark"]) .logo-badge {
+    background-color: #FFF9F5;
+    border-color: #D6BEA6;
+}
+:root:not([data-theme="dark"]) .logo-title { color: #62535C; }
+:root:not([data-theme="dark"]) .logo-tagline,
+:root:not([data-theme="dark"]) .theme-toggle,
+:root:not([data-theme="dark"]) .cart-link { color: #B77B8A; }
+:root:not([data-theme="dark"]) .theme-toggle:hover,
+:root:not([data-theme="dark"]) .cart-link:hover { color: #D69BAA; }
+:root:not([data-theme="dark"]) .cart-count { background: #E8B9C5; color: #62535C; }
+
+:root[data-theme="dark"] .header {
+    background: #414447;
+    border-bottom-color: #62666A;
+    box-shadow: 0 2px 12px rgba(45, 31, 38, 0.2);
+}
+:root[data-theme="dark"] .logo-badge {
+    background-color: #FFF9F6;
+    border-color: #D6BEA6;
+}
+:root[data-theme="dark"] .search-input {
+    background: #414447;
+    border-color: #62666A;
+    color: #F7F2EF;
+    caret-color: #F7F2EF;
+}
+:root[data-theme="dark"] .search-input:focus {
+    background: #414447;
+    border-color: #E8B9C5;
+    box-shadow: 0 0 0 3px rgba(214, 155, 170, 0.24);
+}
+:root[data-theme="dark"] .logo-title,
+:root[data-theme="dark"] .cart-link,
+:root[data-theme="dark"] .theme-toggle { color: #F7F2EF; }
+:root[data-theme="dark"] .logo-tagline { color: #D6BEA6; }
+:root[data-theme="dark"] .cart-link:hover,
+:root[data-theme="dark"] .theme-toggle:hover { color: #D69BAA; }
+:root[data-theme="dark"] .cart-count { background: #E8B9C5; color: #343638; }
+
+
+

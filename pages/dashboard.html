@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrativo - ETERNA FRAGANCIA</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/formularios.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="dashboard-body">
+    <!-- Header del Dashboard -->
+    <header class="header dashboard-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <img class="logo-badge" src="../EF LOGO.png" alt="ETERNA FRAGANCIA">
+                    <div class="logo-info">
+                        <span class="logo-title">PANEL ADMIN</span>
+                        <span class="logo-tagline">Gestión de Tienda</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-header-right">
+                <button id="themeToggleBtn" class="btn-theme-toggle" type="button" aria-label="Activar modo oscuro" title="Activar modo oscuro">
+                    <span class="theme-icon" id="themeIcon" aria-hidden="true">
+                        <svg class="theme-icon-moon" viewBox="0 0 24 24" focusable="false"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"></path></svg>
+                        <svg class="theme-icon-sun" viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+                    </span>
+                </button>
+                <a href="../index.html" class="btn-store-link" target="_blank" title="Abrir tienda pública">
+                    Ver Tienda Pública
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Layout con Sidebar -->
+    <div class="dashboard-layout">
+        <!-- Sidebar de Navegación -->
+        <aside class="dashboard-sidebar">
+            <nav class="sidebar-nav">
+                <button class="sidebar-btn active" data-section="inicio">
+                    <span class="sidebar-icon" aria-hidden="true"></span>
+                    <span class="sidebar-label">Inicio / Resumen</span>
+                </button>
+                <button class="sidebar-btn" data-section="productos">
+                    <span class="sidebar-icon" aria-hidden="true"></span>
+                    <span class="sidebar-label">Productos</span>
+                </button>
+                <button class="sidebar-btn" data-section="pedidos">
+                    <span class="sidebar-icon" aria-hidden="true"></span>
+                    <span class="sidebar-label">Pedidos Recibidos</span>
+                </button>
+                <button class="sidebar-btn" data-section="configuracion">
+                    <span class="sidebar-icon" aria-hidden="true"></span>
+                    <span class="sidebar-label">Configuración</span>
+                </button>
+                <button class="sidebar-btn sidebar-logout" id="sidebarLogout">
+                    <span class="sidebar-icon" aria-hidden="true"></span>
+                    <span class="sidebar-label">Cerrar Sesión</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal Dinámico -->
+        <main class="dashboard-main">
+            <!-- SECCIÓN 1: INICIO / STATS -->
+            <section id="seccionInicio" class="dashboard-section active">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Vista General</span>
+                    <h1>Resumen de la Tienda</h1>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" aria-hidden="true"></div>
+                        <div class="stat-content">
+                            <p class="stat-label">Total Productos</p>
+                            <p class="stat-value" id="totalProducts">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card stat-success">
+                        <div class="stat-icon" aria-hidden="true"></div>
+                        <div class="stat-content">
+                            <p class="stat-label">Disponibles</p>
+                            <p class="stat-value" id="availableProducts">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card stat-warning">
+                        <div class="stat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="m12 3 9 16H3L12 3Z"></path><path d="M12 9v4M12 16h.01"></path></svg>
+                        </div>
+                        <div class="stat-content">
+                            <p class="stat-label">Agotados</p>
+                            <p class="stat-value" id="outOfStockProducts">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card stat-primary">
+                        <div class="stat-icon" aria-hidden="true"></div>
+                        <div class="stat-content">
+                            <p class="stat-label">Pedidos Totales</p>
+                            <p class="stat-value" id="totalOrders">0</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECCIÓN 2: GESTIÓN DE PRODUCTOS -->
+            <section id="seccionProductos" class="dashboard-section">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Inventario</span>
+                    <h1>Gestión de Productos</h1>
+                </div>
+                
+                <div class="section-controls">
+                    <div class="search-table-wrap">
+                        <span class="search-icon-input" aria-hidden="true"></span>
+                        <input 
+                            type="text" 
+                            id="searchProducts" 
+                            class="search-input" 
+                            placeholder="Filtrar por nombre, categoría o precio..."
+                        >
+                    </div>
+                    <button class="btn-add" onclick="switchSection('agregar')">
+                        Agregar Nuevo Producto
+                    </button>
+                </div>
+
+
+                <div class="table-responsive">
+                    <table class="products-table">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Estado</th>
+                                <th style="text-align: center;">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <!-- Se llena con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p id="noProducts" class="empty-state hidden">No hay productos registrados. <a href="#" onclick="switchSection('agregar')">Agregar uno ahora</a></p>
+            </section>
+
+            <!-- SECCIÓN 3: AGREGAR / EDITAR PRODUCTO (CON IMAGEN LOCAL O URL) -->
+            <section id="seccionAgregar" class="dashboard-section">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Formulario</span>
+                    <h1 id="formTitle">Agregar Nuevo Producto</h1>
+                </div>
+                
+                <form id="productForm" class="product-form">
+                    <div class="form-row">
+                        <div class="form-group full">
+                            <label for="productName">Nombre del Producto *</label>
+                            <input 
+                                type="text" 
+                                id="productName" 
+                                class="form-input" 
+                                placeholder="Ej: Vaso Térmico Acero Inoxidable 500ml"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productCategory">Categoría *</label>
+                            <select id="productCategory" class="form-input" required>
+                                <option value="">Seleccionar categoría...</option>
+                                <option value="sahumerios">Sahumerios</option>
+                                <option value="aromatizacion">Aromatización</option>
+                                <option value="velas-velones">Velas/velones</option>
+                                <option value="porta-sahumerios">Porta sahumerios</option>
+                                <option value="piedras">Piedras</option>
+                                <option value="amuletos">Amuletos</option>
+                                <option value="bienestar">Bienestar</option>
+                                <option value="decoracion">Decoración</option>
+                                <option value="kits">Kits</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productPrice">Precio ($ ARS) *</label>
+                            <input 
+                                type="number" 
+                                id="productPrice" 
+                                class="form-input" 
+                                placeholder="Ej: 12500"
+                                min="0"
+                                step="1"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productStock">Stock disponible (unidades) *</label>
+                            <input 
+                                type="number" 
+                                id="productStock" 
+                                class="form-input" 
+                                placeholder="Ej: 15"
+                                min="0"
+                                required
+                            >
+                            <small class="file-formats-hint">Si agregás aromas, este total se calcula automáticamente.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full">
+                            <label>Aromas y stock por variante</label>
+                            <div id="productVariantsList"></div>
+                            <button type="button" class="btn-cancel" id="addProductVariantBtn">Agregar aroma</button>
+                            <small class="file-formats-hint">Cada aroma mantiene su propio stock. El precio se comparte entre las variantes.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full">
+                            <label for="productDescription">Descripción del Producto</label>
+                            <textarea 
+                                id="productDescription" 
+                                class="form-input form-textarea"
+                                placeholder="Detalles, materiales, características, medidas..."
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <!-- SELECCIÓN DE IMAGEN DUAL (LOCAL O URL) -->
+                    <div class="image-selector-card">
+                        <h3 class="image-selector-title">Imagen del Producto</h3>
+                        <p class="image-selector-subtitle">Puedes subir un archivo desde tu dispositivo o ingresar un enlace web directo.</p>
+                        
+                        <div class="image-options-grid">
+                            <!-- Opción 1: Archivo Local -->
+                            <div class="image-option-box">
+                                <label class="option-title">Opción 1: Subir desde la computadora</label>
+                                <div class="file-upload-wrapper">
+                                    <input 
+                                        type="file" 
+                                        id="productImageFile" 
+                                        class="file-input" 
+                                        multiple
+                                        accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+                                    >
+                                    <label for="productImageFile" class="btn-file-label">
+                                        Seleccionar imagen local
+                                    </label>
+                                </div>
+                                <span class="file-formats-hint">Formatos soportados: JPG, JPEG, PNG, WEBP</span>
+                            </div>
+
+                            <!-- Opción 2: URL Externa -->
+                            <div class="image-option-box">
+                                <label for="productImageUrl" class="option-title">Opción 2: URLs de las imágenes</label>
+                                <textarea 
+                                    id="productImageUrl" 
+                                    class="form-input" 
+                                    rows="3"
+                                    placeholder="Pegá una URL por línea"
+                                ></textarea>
+                                <span class="file-formats-hint">Podés ingresar una o varias URLs directas, una por línea.</span>
+                            </div>
+                        </div>
+
+                        <!-- Vista Previa de la Imagen -->
+                        <div class="preview-wrapper">
+                            <label class="preview-label">Vista previa:</label>
+                            <div id="imagePreview" class="image-preview hidden">
+                                <img id="previewImg" src="" alt="Vista previa de imagen">
+                            </div>
+                            <div id="previewError" class="preview-error-msg hidden">
+                                ⚠️ No se pudo cargar la imagen.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row mt-lg">
+                        <div class="form-group">
+                            <label for="productStatus">Estado de Disponibilidad *</label>
+                            <select id="productStatus" class="form-input" required>
+                                <option value="disponible">Disponible para la venta</option>
+                                <option value="agotado">Agotado / Sin stock</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="productHighlight">
+                                <span>⭐ Destacar en la portada ("Productos Destacados")</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Guardar Producto</button>
+                        <button type="button" class="btn-cancel" onclick="switchSection('productos')">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- SECCIÓN 4: PEDIDOS -->
+            <section id="seccionPedidos" class="dashboard-section">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Ventas</span>
+                    <h1>Gestión de Pedidos</h1>
+                </div>
+
+                <div class="section-controls">
+                    <select id="filterOrders" class="form-input select-filter-orders">
+                        <option value="todos">Todos los estados de pedido</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="confirmado">Confirmado</option>
+                        <option value="preparando">Preparando</option>
+                        <option value="entregado">Entregado</option>
+                        <option value="cancelado">Cancelado</option>
+                    </select>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>N° Pedido</th>
+                                <th>Fecha</th>
+                                <th>Cliente</th>
+                                <th>Total</th>
+                                <th>Estado</th>
+                                <th style="text-align: center;">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <!-- Se llena con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <p id="noOrders" class="empty-state hidden">No hay pedidos registrados hasta el momento.</p>
+            </section>
+
+            <!-- SECCIÓN 5: CONFIGURACIÓN -->
+            <section id="seccionConfiguracion" class="dashboard-section">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Ajustes</span>
+                    <h1>Configuración del Negocio</h1>
+                </div>
+
+                <form id="configForm" class="config-form">
+                    <div class="config-section">
+                        <h2>Datos de la Tienda</h2>
+                        
+                        <div class="form-group full">
+                            <label for="storeName">Nombre del Negocio</label>
+                            <input type="text" id="storeName" class="form-input" placeholder="ETERNA FRAGANCIA">
+                        </div>
+
+                        <div class="form-group full">
+                            <label for="storeDescription">Descripción / Eslogan</label>
+                            <textarea id="storeDescription" class="form-input form-textarea" placeholder="Todo lo que buscás, en un solo lugar."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="config-section">
+                        <h2>Header principal</h2>
+                        <div class="form-group full"><label for="heroEyebrow">Texto superior</label><input type="text" id="heroEyebrow" class="form-input"></div>
+                        <div class="form-group full"><label for="heroTitle">Título principal</label><input type="text" id="heroTitle" class="form-input"></div>
+                        <div class="form-group full"><label for="heroDescription">Descripción</label><textarea id="heroDescription" class="form-input form-textarea"></textarea></div>
+                        <div class="form-group full"><label for="heroImageUrl">Imagen del header (URL)</label><div class="hero-image-url-row"><input type="url" id="heroImageUrl" class="form-input" placeholder="https://..."><button type="button" id="removeHeroImageBtn" class="btn-cancel btn-remove-hero" title="Eliminar imagen" aria-label="Eliminar imagen">Eliminar imagen</button></div><label for="heroImageFile">O seleccionar archivo local</label><input type="file" id="heroImageFile" accept="image/*" class="form-input"><img id="heroImagePreview" alt="Vista previa del header" class="image-preview hidden"><small>La imagen se valida antes de guardar.</small></div>
+                    </div>
+
+                    <div class="config-section">
+                        <h2>Contacto & Canales de Venta</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="whatsappNumber">Número de WhatsApp (con código país y área sin + ni espacios)</label>
+                                <input type="text" id="whatsappNumber" class="form-input" placeholder="Ej: 5491123456789">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="instagramUsername">Usuario de Instagram</label>
+                                <input type="text" id="instagramUsername" class="form-input" placeholder="@rbpolirubro">
+                            </div>
+                        </div>
+
+                        <div class="form-group full">
+                            <label for="storeAddress">Dirección del Local / Punto de Retiro</label>
+                            <input type="text" id="storeAddress" class="form-input" placeholder="Calle Principal 123, Ciudad">
+                        </div>
+
+                        <div class="form-group full">
+                            <label for="storeHours">Horarios de Atención</label>
+                            <input type="text" id="storeHours" class="form-input" placeholder="Lunes a Viernes 9:00 - 18:00 hs">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Guardar Configuración</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para Detalles y Estado de Pedido -->
+    <div id="orderModal" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-content modal-large">
+            <button class="modal-close" onclick="closeOrderModal()" title="Cerrar ventana">&times;</button>
+            <div id="orderModalContent">
+                <!-- Se llena con JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- JavaScript -->
+    <script src="../js/configuracion.js"></script>
+    <script src="../js/productos.js"></script>
+    <script src="../js/carrito.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/whatsapp.js"></script>
+    <script src="../node_modules/@supabase/supabase-js/dist/umd/supabase.js"></script>
+    <script type="module" src="../js/supabase-auth.js"></script>
+    <script src="../js/autenticacion.js"></script>
+    <script type="module" src="../js/supabase-storage.js"></script>
+    <script type="module" src="../js/supabase-configuracion.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "nombre": "Vaso Térmico Acero Inoxidable",
+    "categoria": "bazar",
+    "descripcion": "Vaso térmico de acero inoxidable de 500ml, mantiene bebidas frías o calientes por horas.",
+    "precio": 1250,
+    "stock": 15,
+    "imagen": "https://images.unsplash.com/photo-1514432324607-2e467f4af445?w=300&h=300&fit=crop",
+    "destacado": true,
+    "estado": "disponible"
+  },
+  {
+    "id": 2,
+    "nombre": "Juego de Platos de Cerámica",
+    "categoria": "bazar",
+    "descripcion": "Set de 4 platos de cerámica artesanal, resistentes y elegantes.",
+    "precio": 2800,
+    "stock": 8,
+    "imagen": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=300&h=300&fit=crop",
+    "destacado": true,
+    "estado": "disponible"
+  },
+  {
+    "id": 3,
+    "nombre": "Bandeja de Madera Rectangular",
+    "categoria": "bazar",
+    "descripcion": "Bandeja de madera natural, perfecta para servir alimentos o decoración.",
+    "precio": 890,
+    "stock": 20,
+    "imagen": "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  },
+  {
+    "id": 4,
+    "nombre": "Juguete de Peluche - Osito",
+    "categoria": "jugueteria",
+    "descripcion": "Osito de peluche suave y adorable, ideal para niños pequeños.",
+    "precio": 450,
+    "stock": 25,
+    "imagen": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=300&h=300&fit=crop",
+    "destacado": true,
+    "estado": "disponible"
+  },
+  {
+    "id": 5,
+    "nombre": "Carrito de Juguete",
+    "categoria": "jugueteria",
+    "descripcion": "Carrito de juguete con ruedas de movimiento libre, colores brillantes.",
+    "precio": 320,
+    "stock": 30,
+    "imagen": "https://images.unsplash.com/photo-1578789719453-ac6900fb2f6c?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  },
+  {
+    "id": 6,
+    "nombre": "Bloques de Construcción",
+    "categoria": "jugueteria",
+    "descripcion": "Set de 50 bloques de colores para construir y crear.",
+    "precio": 680,
+    "stock": 12,
+    "imagen": "https://images.unsplash.com/photo-1609269585289-03519db7a398?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  },
+  {
+    "id": 7,
+    "nombre": "Paleta de Sombras Eyeshadow",
+    "categoria": "maquillaje",
+    "descripcion": "Paleta de 12 colores de sombras para ojos, colores vibrantes y durables.",
+    "precio": 1580,
+    "stock": 10,
+    "imagen": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=300&fit=crop",
+    "destacado": true,
+    "estado": "disponible"
+  },
+  {
+    "id": 8,
+    "nombre": "Base de Maquillaje Líquida",
+    "categoria": "maquillaje",
+    "descripcion": "Base líquida de larga duración, acabado natural y cubertura completa.",
+    "precio": 1200,
+    "stock": 18,
+    "imagen": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  },
+  {
+    "id": 9,
+    "nombre": "Pincel de Maquillaje Premium",
+    "categoria": "maquillaje",
+    "descripcion": "Set de 5 pinceles de maquillaje profesionales con cerdas naturales.",
+    "precio": 890,
+    "stock": 14,
+    "imagen": "https://images.unsplash.com/photo-1631214174882-e127c9ebcc65?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  },
+  {
+    "id": 10,
+    "nombre": "Juego de Sábanas 100% Algodón",
+    "categoria": "blanqueria",
+    "descripcion": "Juego de sábanas queen size, 100% algodón puro, muy suave.",
+    "precio": 2500,
+    "stock": 7,
+    "imagen": "https://images.unsplash.com/photo-1611007866919-48416eae58e4?w=300&h=300&fit=crop",
+    "destacado": true,
+    "estado": "disponible"
+  },
+  {
+    "id": 11,
+    "nombre": "Almohada Ergonómica",
+    "categoria": "blanqueria",
+    "descripcion": "Almohada ergonómica con relleno de espuma viscoelástica.",
+    "precio": 1450,
+    "stock": 11,
+    "imagen": "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  },
+  {
+    "id": 12,
+    "nombre": "Toalla de Baño Suave",
+    "categoria": "blanqueria",
+    "descripcion": "Toalla de baño de algodón puro, suave y absorbente.",
+    "precio": 320,
+    "stock": 35,
+    "imagen": "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  },
+  {
+    "id": 13,
+    "nombre": "Perfume Eau de Toilette",
+    "categoria": "perfumeria",
+    "descripcion": "Eau de Toilette con aroma floral y frutal, 100ml.",
+    "precio": 2200,
+    "stock": 9,
+    "imagen": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop",
+    "destacado": true,
+    "estado": "disponible"
+  },
+  {
+    "id": 14,
+    "nombre": "Colonia Corporal Spray",
+    "categoria": "perfumeria",
+    "descripcion": "Colonia corporal en spray, aroma fresco y duradero.",
+    "precio": 890,
+    "stock": 22,
+    "imagen": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  },
+  {
+    "id": 15,
+    "nombre": "Desodorante Natural",
+    "categoria": "perfumeria",
+    "descripcion": "Desodorante natural sin aluminio, protección 24 horas.",
+    "precio": 450,
+    "stock": 28,
+    "imagen": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  },
+  {
+    "id": 16,
+    "nombre": "Mochila Escolar Ergonómica",
+    "categoria": "escolar",
+    "descripcion": "Mochila escolar con compartimentos y soporte lumbar ergonómico.",
+    "precio": 1650,
+    "stock": 13,
+    "imagen": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop",
+    "destacado": true,
+    "estado": "disponible"
+  },
+  {
+    "id": 17,
+    "nombre": "Set de Útiles Escolares Completo",
+    "categoria": "escolar",
+    "descripcion": "Set completo con lápices, marcadores, gomas, sacapuntas y más.",
+    "precio": 890,
+    "stock": 16,
+    "imagen": "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  },
+  {
+    "id": 18,
+    "nombre": "Cuaderno de 200 Hojas",
+    "categoria": "escolar",
+    "descripcion": "Cuaderno de 200 hojas cuadriculadas, tapa dura.",
+    "precio": 320,
+    "stock": 40,
+    "imagen": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  },
+  {
+    "id": 19,
+    "nombre": "Bolígrafos Gel Premium",
+    "categoria": "escolar",
+    "descripcion": "Pack de 10 bolígrafos gel de colores, escritura suave.",
+    "precio": 280,
+    "stock": 50,
+    "imagen": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  },
+  {
+    "id": 20,
+    "nombre": "Organizador de Escritorio",
+    "categoria": "escolar",
+    "descripcion": "Organizador de escritorio con compartimentos para útiles.",
+    "precio": 450,
+    "stock": 19,
+    "imagen": "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=300&h=300&fit=crop",
+    "destacado": false,
+    "estado": "disponible"
+  }
+]

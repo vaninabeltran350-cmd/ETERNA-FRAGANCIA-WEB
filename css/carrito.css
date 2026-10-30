@@ -1,0 +1,606 @@
+/* ==========================================
+   CARRITO Y CHECKOUT - ETERNA FRAGANCIA
+   ========================================== */
+
+.cart-body {
+    background-color: var(--color-body-bg);
+}
+
+.cart-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem var(--spacing-lg) 2rem;
+}
+
+.cart-body .footer {
+    margin-top: 0;
+}
+
+.cart-page-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.cart-page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-primary-black);
+    margin-bottom: 0.5rem;
+}
+
+.cart-page-subtitle {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-base);
+}
+
+.cart-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.cart-body .cart-wrapper {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+}
+
+/* Sin productos, el estado vacío ocupa y centra todo el ancho disponible. */
+.cart-wrapper:has(#emptyCartMessage:not(.hidden)) {
+    grid-template-columns: 1fr;
+}
+
+/* Sección de Items del Carrito */
+.cart-items-section {
+    background-color: #ffffff;
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow-sm);
+    border: 1px solid var(--color-border);
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Item del Carrito Individual */
+.cart-item {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    align-items: center;
+    background-color: #ffffff;
+    transition: var(--transition);
+}
+
+.cart-item:hover {
+    border-color: var(--color-gold-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.cart-item-image {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    background-color: var(--color-light-gray);
+}
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.cart-item-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-primary-black);
+    line-height: 1.3;
+}
+
+.cart-item-category {
+    font-size: 0.75rem;
+    color: var(--color-primary-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cart-item-price {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-top: 0.25rem;
+}
+
+.cart-item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+}
+
+.cart-item-subtotal {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-primary-black);
+}
+
+/* Control de Cantidad */
+.cart-item-quantity {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-light-gray);
+    border-radius: var(--border-radius-pill);
+    padding: 2px 4px;
+    border: 1px solid var(--color-border);
+}
+
+.quantity-btn {
+    background-color: #ffffff;
+    color: var(--color-primary-black);
+    border: 1px solid var(--color-border);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.quantity-btn:hover {
+    background-color: var(--color-primary-gold);
+    color: var(--color-primary-black);
+    border-color: var(--color-primary-gold);
+}
+
+.quantity-value {
+    min-width: 32px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.btn-remove {
+    background: transparent;
+    color: #ef4444;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: var(--transition);
+}
+
+.btn-remove:hover {
+    color: #b91c1c;
+    text-decoration: underline;
+}
+
+/* Estado de Carrito Vacío */
+.empty-cart {
+    text-align: center;
+    width: min(100%, 560px);
+    max-width: 560px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 2.5rem 1.5rem;
+    background: #FFF8FA;
+    border: 1px solid #F0D9E1;
+    border-radius: 1rem;
+}
+
+.empty-cart-icon {
+    width: 3.25rem;
+    height: 3.25rem;
+    margin: 0 auto 1rem;
+    color: #C98298;
+}
+
+.empty-cart-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.35;
+}
+
+.empty-cart h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #5A4650;
+    margin: 0 0 0.45rem;
+}
+
+.empty-cart p {
+    max-width: 34rem;
+    margin: 0 auto 1.35rem;
+    color: #765F69;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.btn-empty-cart {
+    display: inline-block;
+    padding: 0.7rem 1.35rem;
+    background: #C98298;
+    color: #FFFFFF;
+    border: 1px solid #C98298;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 0.55rem;
+    transition: var(--transition);
+}
+
+.btn-empty-cart:hover {
+    background: #A9657A;
+    border-color: #A9657A;
+}
+
+/* El panel conserva su estilo original cuando hay productos. */
+.cart-items-section:has(#emptyCartMessage:not(.hidden)) {
+    display: block;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.cart-items-section:has(#emptyCartMessage:not(.hidden)) > .summary-title {
+    display: none;
+}
+
+.cart-items-section:has(#emptyCartMessage:not(.hidden)) .empty-cart {
+    margin: 0 auto;
+}
+
+/* Resumen del Pedido (Sidebar) */
+.cart-summary {
+    padding: 1.25rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-sm);
+    position: sticky;
+    top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.summary-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-primary-black);
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 0;
+    color: var(--color-text-dark);
+}
+
+.summary-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.summary-val {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.summary-item.total {
+    border-top: 1px solid var(--color-border);
+    margin-top: 0.75rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.summary-item.total .summary-label {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-primary-black);
+}
+
+.summary-item.total .summary-val {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary-gold);
+}
+
+/* Sección de Medio de Pago */
+.payment-section {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary-black);
+    margin-bottom: 0.75rem;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-light-gray);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.radio-label:hover {
+    border-color: var(--color-primary-gold);
+    background-color: var(--color-gold-light);
+}
+
+.radio-label input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-primary-gold);
+    cursor: pointer;
+}
+
+.radio-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.radio-text strong {
+    font-size: 0.9rem;
+    color: var(--color-primary-black);
+}
+
+.radio-text small {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+/* Datos de Transferencia */
+.payment-data {
+    background-color: var(--color-gold-light);
+    border: 1px solid var(--color-gold-border);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
+
+.transfer-badge {
+    font-weight: 700;
+    color: var(--color-gold-dark);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.payment-data p {
+    margin: 0.35rem 0;
+    color: var(--color-text-dark);
+}
+
+.payment-data span {
+    font-family: monospace;
+    font-weight: 700;
+    color: var(--color-primary-black);
+    background: #ffffff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.transfer-note {
+    font-size: 0.75rem !important;
+    color: var(--color-gold-dark) !important;
+    margin-top: 0.5rem !important;
+    font-style: italic;
+}
+
+/* Sección Datos del Cliente */
+.customer-section {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.form-group {
+    margin-bottom: 0.85rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-primary-black);
+    margin-bottom: 0.35rem;
+}
+
+/* Botones de Finalización */
+.btn-checkout {
+    width: 100%;
+    padding: 0.9rem 1.25rem;
+    background: #D69BAA;
+    color: #634C56;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    font-size: 0.98rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: none;
+}
+
+.btn-checkout:hover {
+    background: #C98B9B;
+    transform: translateY(-1px);
+}
+
+.btn-checkout:disabled {
+    background: var(--color-medium-gray);
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn-continue {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    background-color: transparent;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.cart-summary-store-link {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.75rem;
+}
+
+.cart-summary-store-link .back-btn {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0;
+    background-color: transparent;
+    border-color: var(--color-border);
+}
+
+.cart-summary-store-link .back-btn:hover {
+    background-color: transparent;
+}
+
+.whatsapp-button-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex: 0 0 auto;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.btn-continue:hover {
+    color: var(--color-primary-black);
+    text-decoration: none;
+    background-color: var(--color-light-gray);
+}
+
+/* Ajuste visual Eterna Fragancia */
+:root:not([data-theme="dark"]) .cart-body { background: #FFF8FA; }
+:root:not([data-theme="dark"]) .cart-items-section,
+:root:not([data-theme="dark"]) .cart-summary,
+:root:not([data-theme="dark"]) .cart-item { background: #FFFFFF; border-color: #F0D9E1; }
+:root:not([data-theme="dark"]) .cart-item:hover { border-color: #E5B8C8; }
+:root:not([data-theme="dark"]) .cart-item-image,
+:root:not([data-theme="dark"]) .cart-item-quantity,
+:root:not([data-theme="dark"]) .radio-label,
+:root:not([data-theme="dark"]) .payment-data { background: #FFF8FA; }
+:root:not([data-theme="dark"]) .cart-page-title,
+:root:not([data-theme="dark"]) .cart-item-name,
+:root:not([data-theme="dark"]) .summary-title { color: #5A4650; }
+:root:not([data-theme="dark"]) .cart-item-category,
+:root:not([data-theme="dark"]) .cart-item-price,
+:root:not([data-theme="dark"]) .summary-item.total .summary-val { color: #A9657A; }
+:root:not([data-theme="dark"]) .quantity-btn { background: #FCE8EF; color: #765F69; }
+:root:not([data-theme="dark"]) .quantity-btn:hover { background: #F4CBD8; }
+:root:not([data-theme="dark"]) .btn-checkout { box-shadow: none; }
+
+/* Paleta final Eterna Fragancia para carrito y checkout. */
+:root:not([data-theme="dark"]) .cart-body { background: #FFF9F6; }
+:root:not([data-theme="dark"]) .cart-items-section,
+:root:not([data-theme="dark"]) .cart-summary,
+:root:not([data-theme="dark"]) .cart-item { background: #FFFFFF; border-color: #EAD3D8; }
+:root:not([data-theme="dark"]) .cart-item:hover { border-color: #D69BAA; box-shadow: 0 4px 12px rgba(99, 76, 86, 0.08); }
+:root:not([data-theme="dark"]) .cart-page-title,
+:root:not([data-theme="dark"]) .cart-item-name,
+:root:not([data-theme="dark"]) .cart-item-subtotal,
+:root:not([data-theme="dark"]) .summary-title { color: #634C56; }
+:root:not([data-theme="dark"]) .cart-page-subtitle,
+:root:not([data-theme="dark"]) .cart-item-price,
+:root:not([data-theme="dark"]) .summary-item { color: #8C737D; }
+:root:not([data-theme="dark"]) .cart-item-category,
+:root:not([data-theme="dark"]) .cart-item-price,
+:root:not([data-theme="dark"]) .summary-item.total .summary-val { color: #B77B8A; }
+:root:not([data-theme="dark"]) .cart-item-image,
+:root:not([data-theme="dark"]) .cart-item-quantity,
+:root:not([data-theme="dark"]) .radio-label,
+:root:not([data-theme="dark"]) .payment-data { background: #FFF9F6; border-color: #EAD3D8; }
+:root:not([data-theme="dark"]) .quantity-btn { background: #F1DDE2; color: #634C56; border-color: #EAD3D8; }
+:root:not([data-theme="dark"]) .quantity-btn:hover { background: #D69BAA; border-color: #D69BAA; }
+:root:not([data-theme="dark"]) .empty-cart { background: #FFF9F6; border-color: #F1DDE2; }
+:root:not([data-theme="dark"]) .empty-cart-icon { color: #D69BAA; }
+:root:not([data-theme="dark"]) .empty-cart h2 { color: #634C56; }
+:root:not([data-theme="dark"]) .empty-cart p { color: #8C737D; }
+:root:not([data-theme="dark"]) .btn-empty-cart { background: #D69BAA; color: #634C56; border-color: #D69BAA; }
+:root:not([data-theme="dark"]) .btn-empty-cart:hover { background: #C98B9B; border-color: #C98B9B; }
+:root:not([data-theme="dark"]) .btn-checkout { background: #D69BAA; color: #634C56; border-color: #D69BAA; }
+:root:not([data-theme="dark"]) .btn-checkout:hover { background: #C98B9B; }
+
+:root[data-theme="dark"] .cart-body { background: #4A3941; }
+:root[data-theme="dark"] .cart-items-section,
+:root[data-theme="dark"] .cart-summary,
+:root[data-theme="dark"] .cart-item { background: #604B55; border-color: #92717C; color: #FFF9F6; }
+:root[data-theme="dark"] .cart-item:hover { border-color: #D69BAA; box-shadow: 0 4px 12px rgba(45, 31, 38, 0.24); }
+:root[data-theme="dark"] .cart-page-title,
+:root[data-theme="dark"] .cart-item-name,
+:root[data-theme="dark"] .cart-item-subtotal,
+:root[data-theme="dark"] .summary-title { color: #FFF9F6; }
+:root[data-theme="dark"] .cart-page-subtitle,
+:root[data-theme="dark"] .cart-item-price,
+:root[data-theme="dark"] .summary-item { color: #F1DDE2; }
+:root[data-theme="dark"] .cart-item-category,
+:root[data-theme="dark"] .summary-item.total .summary-val { color: #D6BEA6; }
+:root[data-theme="dark"] .cart-item-image,
+:root[data-theme="dark"] .cart-item-quantity,
+:root[data-theme="dark"] .radio-label,
+:root[data-theme="dark"] .payment-data { background: #55424B; border-color: #92717C; }
+:root[data-theme="dark"] .quantity-btn { background: #795C67; color: #FFF9F6; border-color: #92717C; }
+:root[data-theme="dark"] .quantity-btn:hover { background: #D69BAA; color: #4A3941; border-color: #D69BAA; }
+:root[data-theme="dark"] .empty-cart { background: #55424B; border-color: #92717C; }
+:root[data-theme="dark"] .empty-cart-icon { color: #D69BAA; }
+:root[data-theme="dark"] .empty-cart h2 { color: #FFF9F6; }
+:root[data-theme="dark"] .empty-cart p { color: #F1DDE2; }
+:root[data-theme="dark"] .btn-empty-cart { background: #D69BAA; color: #4A3941; border-color: #D69BAA; }
+:root[data-theme="dark"] .btn-empty-cart:hover { background: #E1B9C3; border-color: #E1B9C3; }
+:root[data-theme="dark"] .btn-checkout { background: #D69BAA; color: #4A3941; border-color: #D69BAA; }
+:root[data-theme="dark"] .btn-checkout:hover { background: #E1B9C3; }

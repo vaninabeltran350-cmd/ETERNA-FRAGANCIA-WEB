@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETERNA FRAGANCIA - Todo lo que buscás, en un solo lugar</title>
+    <meta name="description" content="Tienda online ETERNA FRAGANCIA. Sahumerios, aromatización, velas, accesorios, piedras, amuletos, bienestar, decoración y kits.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Montserrat:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/catalogo.css">
+    <link rel="stylesheet" href="css/carrito.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header Principal (Público) -->
+    <header class="header">
+        <div class="header-container">
+            <!-- Izquierda: Logo -->
+            <div class="logo-container">
+                <a href="index.html" class="logo" title="ETERNA FRAGANCIA">
+                    <img class="logo-badge" src="EF LOGO.png" alt="ETERNA FRAGANCIA">
+                </a>
+            </div>
+            
+            <!-- Centro: Buscador -->
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <span class="search-icon-left" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg></span>
+                    <input 
+                        type="text" 
+                        id="buscador" 
+                        class="search-input" 
+                        placeholder="Buscar por producto, marca o categoría..."
+                        aria-label="Buscar productos"
+                    >
+                </div>
+            </div>
+            
+            <!-- Derecha: Carrito -->
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar modo de color" title="Cambiar modo de color">
+                    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"></path></svg><svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+                </button>
+                <a href="pages/carrito.html" class="cart-link" id="headerCartBtn" title="Ver Carrito de Compras">
+                    <div class="cart-icon-wrap">
+                        <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L20 8H6"></path><circle cx="9" cy="19" r="1"></circle><circle cx="18" cy="19" r="1"></circle></svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                    <span class="cart-label">Mi Carrito</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Hero de Bienvenida -->
+    <section class="hero-banner">
+        <div class="hero-brand-writing" id="heroBrandWriting" role="img" aria-label="ETERNA FRAGANCIA">
+            <svg viewBox="0 0 1000 180" aria-hidden="true" focusable="false">
+                <text class="hero-brand-word hero-brand-word-eterna" x="500" y="66">ETERNA</text>
+                <text class="hero-brand-word hero-brand-word-fragancia" x="500" y="156">FRAGANCIA</text>
+                <circle class="hero-pencil-tip hero-pencil-tip-eterna" cx="225" cy="58" r="2.5"></circle>
+                <circle class="hero-pencil-tip hero-pencil-tip-fragancia" cx="160" cy="134" r="2.5"></circle>
+            </svg>
+        </div>
+        <div class="hero-content">
+            <span class="hero-subtitle">✨ Calidad & Elegancia a tu alcance</span>
+            <h1 class="hero-title">Todo lo que buscás, en un solo lugar</h1>
+            <p class="hero-description">Descubrí nuestra selección de sahumerios, aromatización, velas, bienestar, decoración y mucho más con atención personalizada por WhatsApp.</p>
+        </div>
+    </section>
+
+    <!-- Categorías y Filtros -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <div class="categories" id="categoriesContainer">
+                <button class="category-btn active" data-category="todos">
+                    Todos
+                </button>
+                <button class="category-btn" data-category="sahumerios">Sahumerios</button>
+                <button class="category-btn" data-category="aromatizacion">Aromatización</button>
+                <button class="category-btn" data-category="velas-velones">Velas/velones</button>
+                <button class="category-btn" data-category="porta-sahumerios">Porta sahumerios</button>
+                <button class="category-btn" data-category="piedras">Piedras</button>
+                <button class="category-btn" data-category="amuletos">Amuletos</button>
+                <button class="category-btn" data-category="bienestar">Bienestar</button>
+                <button class="category-btn" data-category="decoracion">Decoración</button>
+                <button class="category-btn" data-category="kits">Kits</button>
+            </div>
+            
+            <div class="sort-container">
+                <label for="sortBy">Ordenar:</label>
+                <select id="sortBy" class="sort-select">
+                    <option value="default">Relevancia</option>
+                    <option value="price-asc">Precio: Menor a Mayor</option>
+                    <option value="price-desc">Precio: Mayor a Menor</option>
+                    <option value="name-asc">Nombre: A - Z</option>
+                    <option value="name-desc">Nombre: Z - A</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Productos Destacados -->
+    <section class="featured-section" id="featuredSection">
+        <div class="section-header">
+            <div class="section-title-wrap">
+                <span class="section-tag">Colección Exclusiva</span>
+                <h2 class="section-title">Productos Destacados</h2>
+            </div>
+        </div>
+        <div class="products-grid featured-grid" id="featuredGrid">
+            <!-- Se llena dinámicamente con JavaScript -->
+        </div>
+    </section>
+
+    <!-- Sección de Resultados / Catálogo Completo -->
+    <main class="catalog-container">
+        <div class="catalog-header">
+            <h2 class="section-title">Nuestro Catálogo</h2>
+        </div>
+        
+        <div class="products-grid" id="productsGrid">
+            <!-- Los productos se cargarán aquí con JavaScript -->
+        </div>
+        <nav id="catalogPagination" class="catalog-pagination hidden" aria-label="Paginación del catálogo"></nav>
+    </main>
+
+    <!-- Modal de Detalle de Producto -->
+    <div id="productModal" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal" title="Cerrar ventana">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Producto">
+                    <div id="modalImageGallery" class="modal-image-gallery hidden" aria-label="Imágenes del producto"></div>
+                </div>
+                <div class="modal-info">
+                    <span class="modal-category" id="modalCategory"></span>
+                    <h2 id="modalName"></h2>
+                    <div class="modal-price" id="modalPrice"></div>
+                    <div class="modal-availability" id="modalAvailability"></div>
+                    <p class="modal-description" id="modalDescription"></p>
+                    <div id="modalVariants" class="form-group hidden"></div>
+                    <div class="modal-actions-wrap">
+                        <button class="btn-add-to-cart" id="modalAddBtn">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contacto y Atención</h4>
+                <ul class="footer-links-list">
+                    <li>
+                        <span class="footer-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false"><path d="M20 11.5a8.2 8.2 0 0 1-8.3 8.2 8.2 8.2 0 0 1-3.9-1L4 20l1.3-3.7a8.2 8.2 0 1 1 14.7-4.8Z"></path><path d="M9.2 8.6c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.5c.1.3.1.5-.1.7l-.5.6c.6 1.1 1.4 1.8 2.5 2.4l.6-.5c.2-.2.4-.2.7-.1l1.5.6c.3.1.4.3.4.6v.5c0 .3-.1.5-.4.7-.4.3-1 .4-1.5.3-2.3-.4-5.2-3.3-5.6-5.6-.1-.6 0-1.1.3-1.7Z"></path></svg>
+                        </span>
+                        <a href="#" id="footerWhatsApp" class="footer-link">WhatsApp Directo</a>
+                    </li>
+                    <li>
+                        <span class="footer-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.7" r=".8" class="footer-icon-fill"></circle></svg>
+                        </span>
+                        <a href="#" id="footerInstagram" class="footer-link">Instagram</a>
+                    </li>
+                    <li>
+                        <span class="footer-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false"><path d="M20 10.5c0 5.3-8 10-8 10s-8-4.7-8-10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10.5" r="2.5"></circle></svg>
+                        </span>
+                        <span id="footerAddress">Calle Principal 123, Ciudad</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Horarios de Atención</h4>
+                <p id="footerHours" class="footer-hours">Lunes a Viernes: 9:00 - 18:00 hs<br>Sábados: 9:00 - 13:00 hs</p>
+                <div class="payment-badges-footer">
+                    <span class="badge-payment">
+                        <span class="footer-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M7 12h.01M17 12h.01M8 9.5h8"></path></svg>
+                        </span>
+                        Transferencia
+                    </span>
+                    <span class="badge-payment">
+                        <span class="footer-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M7 9.5h10v5H7zM12 9.5v5"></path></svg>
+                        </span>
+                        Efectivo
+                    </span>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 ETERNA FRAGANCIA. Todos los derechos reservados. Tienda online oficial.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="node_modules/@supabase/supabase-js/dist/umd/supabase.js"></script>
+    <script src="js/configuracion.js"></script>
+    <script type="module" src="js/supabase-configuracion.js"></script>
+    <script src="js/productos.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/filtros.js"></script>
+    <script src="js/buscador.js"></script>
+    <script src="js/whatsapp.js"></script>
+    <script src="js/tema.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

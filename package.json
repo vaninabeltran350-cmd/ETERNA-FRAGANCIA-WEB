@@ -1,0 +1,21 @@
+{
+  "name": "rb-boutique",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.3"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true
+  },
+  "dependencies": {
+    "@hcaptcha/vanilla-hcaptcha": "^1.1.4",
+    "@supabase/supabase-js": "^2.116.0"
+  }
+}

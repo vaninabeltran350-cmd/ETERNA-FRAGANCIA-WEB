@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Administrador - ETERNA FRAGANCIA</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=login" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/formularios.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <style>
+        .password-input-wrap .form-input { padding-right: 3rem; }
+        .password-toggle { position: absolute; top: 50%; right: 0.75rem; display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; padding: 0; border: 0; background: transparent; color: var(--color-text-muted); cursor: pointer; transform: translateY(-50%); }
+        .password-toggle:hover, .password-toggle:focus-visible { color: var(--color-primary-gold); }
+        .password-toggle svg { width: 1.15rem; height: 1.15rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
+        .password-toggle .icon-eye-off, .password-toggle.is-visible .icon-eye { display: none; }
+        .password-toggle.is-visible .icon-eye-off { display: block; }
+    </style>
+</head>
+<body class="login-page">
+    <!-- Header Simplificado -->
+    <header class="header login-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="../index.html" class="logo" title="Volver a la Tienda">
+                    <img class="logo-badge" src="../EF LOGO.png" alt="ETERNA FRAGANCIA">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Formulario de Login -->
+    <main class="login-container">
+        <div class="login-card">
+            <div class="login-badge-icon material-symbols-outlined" aria-hidden="true">login</div>
+            <h1 class="login-title">Panel de Administración</h1>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">Usuario</label>
+                    <input type="email" id="email" class="form-input" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña de Administrador</label>
+                    <div class="password-input-wrap">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            class="form-input" 
+                            placeholder="••••••••••••"
+                            required
+                            autocomplete="current-password"
+                        >
+                        <button type="button" class="password-toggle" data-password-target="password" aria-label="Mostrar contraseña" aria-pressed="false">
+                            <svg class="icon-eye" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"></path><circle cx="12" cy="12" r="2.5"></circle></svg>
+                            <svg class="icon-eye-off" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 3 18 18"></path><path d="M10.6 6.2A10.8 10.8 0 0 1 12 6c6.5 0 10 6 10 6a18.6 18.6 0 0 1-3.1 3.5"></path><path d="M6.5 6.8C3.5 8.5 2 12 2 12s3.5 6 10 6a10.8 10.8 0 0 0 3-.4"></path><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <h-captcha id="loginCaptcha" sitekey="ff4a2a32-d8be-4a96-b502-ef402f326272"></h-captcha>
+                </div>
+                <button type="submit" class="btn-login">
+                    Ingresar al Dashboard →
+                </button>
+            </form>
+            
+            <div id="loginError" class="error-message hidden"></div>
+            <p class="login-help"><a href="reset-password.html" class="btn-back-store">¿Olvidaste tu contraseña?</a></p>
+            
+            <p class="login-help">
+                <a href="../index.html" class="btn-back-store">← Volver a la Tienda Pública</a>
+            </p>
+            
+            <div class="login-client-note">
+                <small>🛡️ Autenticación de interfaz frontend local.</small>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- JavaScript -->
+    <script src="../js/configuracion.js"></script>
+    <script src="../node_modules/@supabase/supabase-js/dist/umd/supabase.js"></script>
+    <script type="module" src="../js/supabase-auth.js"></script>
+    <script src="../js/autenticacion.js"></script>
+</body>
+</html>
