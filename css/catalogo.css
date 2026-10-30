@@ -13,10 +13,6 @@
     overflow: hidden;
 }
 
-.hero-banner::after {
-    display: none;
-}
-
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
@@ -985,21 +981,6 @@
 }
 .hero-title { max-width: 680px; }
 .hero-description { max-width: 590px; }
-.hero-banner::after {
-    display: block;
-    content: '';
-    position: absolute;
-    width: min(29vw, 360px);
-    height: min(15vw, 185px);
-    right: 7vw;
-    top: 50%;
-    border: 1px solid var(--color-powdered-rose);
-    border-left-color: transparent;
-    border-radius: 58% 42% 54% 46%;
-    opacity: 0.6;
-    transform: translateY(-50%) rotate(-9deg);
-    pointer-events: none;
-}
 .hero-banner::before {
     content: '';
     display: block;
@@ -1040,14 +1021,12 @@
 }
 :root[data-theme="dark"] .hero-title { color: #F5ECEB; font-weight: 600; }
 :root[data-theme="dark"] .hero-description { color: #D7C4C7; }
-:root[data-theme="dark"] .hero-banner::after { border-color: #62666A; border-left-color: transparent; }
 :root[data-theme="dark"] .hero-banner::before { background: #F5E6DC; }
 
 @media (max-width: 768px) {
     .hero-banner { min-height: 230px; padding: 2.4rem 1.25rem 2.6rem; text-align: center; }
     .hero-content { padding-right: 0; }
     .hero-banner::before { left: 50%; top: 1.35rem; transform: translateX(-50%); }
-    .hero-banner::after { width: 180px; height: 90px; right: -48px; top: 68%; opacity: 0.45; }
 }
 
 /* Paleta final Eterna Fragancia: catálogo, categorías, tarjetas y footer. */
@@ -1063,7 +1042,6 @@
 :root:not([data-theme="dark"]) .product-category,
 :root:not([data-theme="dark"]) .modal-category { color: #B77B8A; }
 :root:not([data-theme="dark"]) .hero-banner::before { background: #D6BEA6; }
-:root:not([data-theme="dark"]) .hero-banner::after { border-color: #E8B9C5; border-left-color: transparent; }
 :root:not([data-theme="dark"]) .category-btn { color: #8E6E79; }
 :root:not([data-theme="dark"]) .category-btn:hover,
 :root:not([data-theme="dark"]) .category-btn.active { color: #B77B8A; }
@@ -1113,7 +1091,6 @@
 :root[data-theme="dark"] .product-category,
 :root[data-theme="dark"] .modal-category { color: #D6BEA6; }
 :root[data-theme="dark"] .hero-banner::before { background: #D6BEA6; }
-:root[data-theme="dark"] .hero-banner::after { border-color: #4C4A52; border-left-color: transparent; }
 :root[data-theme="dark"] .category-btn { color: #CFC5CA; }
 :root[data-theme="dark"] .category-btn:hover,
 :root[data-theme="dark"] .category-btn.active { color: #D69BAA; }

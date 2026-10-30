@@ -217,25 +217,28 @@ async function getSupabaseCategories() {
 async function getSupabaseProducts() {
     const supabaseClient = requireClient();
     console.time('Catálogo: getSupabaseProducts');
-    console.time('Supabase categorías');
-    let categories;
-    try {
-        categories = await getSupabaseCategories();
-    } finally {
-        console.timeEnd('Supabase categorías');
-    }
+    const categoriesPromise = (async () => {
+        console.time('Supabase categorías');
+        try {
+            return await getSupabaseCategories();
+        } finally {
+            console.timeEnd('Supabase categorías');
+        }
+    })();
+    const productsPromise = (async () => {
+        console.time('Supabase productos');
+        try {
+            return await supabaseClient.from('productos').select(PRODUCT_SELECT);
+        } finally {
+            console.timeEnd('Supabase productos');
+        }
+    })();
+    const [categories, productsResult] = await Promise.all([categoriesPromise, productsPromise]);
     // Supabase puede serializar un bigint/UUID de forma distinta entre consultas.
     // La clave textual evita perder la relación categoria_id -> nombre por una
     // diferencia de representación (por ejemplo, 1 frente a "1").
     const categoryMap = new Map(categories.map((category) => [String(category.id), category.nombre]));
-    console.time('Supabase productos');
-    let data;
-    let error;
-    try {
-        ({ data, error } = await supabaseClient.from('productos').select(PRODUCT_SELECT));
-    } finally {
-        console.timeEnd('Supabase productos');
-    }
+    const { data, error } = productsResult;
     if (error) {
         const queryError = markSupabaseQueryError(error, 'productos');
         logSupabaseError('No se pudieron consultar productos', queryError);

@@ -20,6 +20,10 @@ const legacyScripts = [
   'js/carrito-page.js'
 ];
 
+const publicAssets = [
+  'HEADER PRINCIPAL.png'
+];
+
 function copyLegacyScripts() {
   return {
     name: 'copy-legacy-scripts',
@@ -28,6 +32,11 @@ function copyLegacyScripts() {
         const sourcePath = resolve(rootDir, relativePath);
         const targetPath = resolve(outputOptions.dir, relativePath);
         fs.mkdirSync(resolve(targetPath, '..'), { recursive: true });
+        fs.copyFileSync(sourcePath, targetPath);
+      }
+      for (const relativePath of publicAssets) {
+        const sourcePath = resolve(rootDir, relativePath);
+        const targetPath = resolve(outputOptions.dir, relativePath);
         fs.copyFileSync(sourcePath, targetPath);
       }
     }
