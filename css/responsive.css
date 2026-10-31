@@ -295,17 +295,24 @@
 
 /* 4. CELULARES GRANDES Y TABLETS PEQUEÑAS (481px - 768px) */
 @media (max-width: 768px) {
+    html:has(body.cart-body) {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
     body.cart-body {
         align-items: stretch;
         width: 100%;
         max-width: 100%;
         min-width: 0;
-        overflow-x: clip;
+        overflow-x: hidden;
     }
 
     body.cart-body > .header,
     body.cart-body > .cart-container,
     body.cart-body > .footer {
+        box-sizing: border-box;
         width: 100%;
         max-width: 100%;
         min-width: 0;
@@ -421,9 +428,19 @@
     
     /* Carrito */
     .cart-body .cart-container {
+        box-sizing: border-box;
         width: 100%;
         min-width: 0;
         padding: 1.25rem 1rem 2rem;
+    }
+
+    .cart-body .cart-container .cart-wrapper,
+    .cart-body .cart-container .cart-items-section,
+    .cart-body .cart-container .cart-summary {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
     }
 
     .cart-body .cart-page-header {
