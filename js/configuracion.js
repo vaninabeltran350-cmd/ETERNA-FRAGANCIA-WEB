@@ -2,6 +2,9 @@
 // CONFIGURACIÓN - Variables globales
 // ==========================================
 
+const DEFAULT_HERO_TITLE = 'ETERNA FRAGANCIA';
+const LEGACY_HERO_TITLE = 'Todo lo que buscás, en un solo lugar';
+
 const CONFIG = {
     // Datos de la tienda
     storeName: 'ETERNA FRAGANCIA',
@@ -15,7 +18,7 @@ const CONFIG = {
     storeHours: 'Lunes a Viernes 9:00 - 18:00',
     
     heroEyebrow: 'Calidad & Elegancia a tu alcance',
-    heroTitle: 'Todo lo que buscás, en un solo lugar',
+    heroTitle: DEFAULT_HERO_TITLE,
     heroDescription: 'Descubrí nuestra selección de sahumerios, aromatización, velas, bienestar, decoración y mucho más con atención personalizada por WhatsApp.',
     heroImage: '',
     
@@ -34,6 +37,11 @@ function loadConfig() {
     if (saved) {
         const customConfig = JSON.parse(saved);
         Object.assign(CONFIG, customConfig);
+    }
+
+    // No permitas que una configuración local antigua deje visible el título legado.
+    if (!CONFIG.heroTitle || CONFIG.heroTitle === LEGACY_HERO_TITLE) {
+        CONFIG.heroTitle = DEFAULT_HERO_TITLE;
     }
 }
 
@@ -58,7 +66,7 @@ function updatePublicHero() {
     const title = document.querySelector('.hero-title');
     const description = document.querySelector('.hero-description');
     if (eyebrow) eyebrow.textContent = CONFIG.heroEyebrow || '';
-    if (title) title.textContent = CONFIG.heroTitle || '';
+    if (title) title.textContent = CONFIG.heroTitle || DEFAULT_HERO_TITLE;
     if (description) description.textContent = CONFIG.heroDescription || '';
     const hero = document.querySelector('.hero-banner');
     if (hero) {
