@@ -1,8 +1,8 @@
 import { supabase } from './supabase-client.js';
 
 const CONFIG_ID = 1;
-const DEFAULT_HERO_TITLE = 'ETERNA FRAGANCIA';
-const LEGACY_HERO_TITLE = 'Todo lo que buscás, en un solo lugar';
+const DEFAULT_HERO_TITLE = 'Todo lo que buscás, en un solo lugar';
+const DUPLICATE_HERO_TITLE = 'ETERNA FRAGANCIA';
 const PUBLIC_CONFIG_FIELDS = [
     'storeName',
     'storeDescription',
@@ -69,9 +69,9 @@ async function loadRemoteStoreConfig() {
 
         const remoteConfig = mapDatabaseConfig(data);
         if (remoteConfig) {
-            // Un registro remoto antiguo o vacío no debe reemplazar el fallback visible.
+            // Un valor remoto vacío no debe dejar el hero sin título durante la carga.
             const resolvedRemoteConfig = { ...remoteConfig };
-            if (!resolvedRemoteConfig.heroTitle || resolvedRemoteConfig.heroTitle === LEGACY_HERO_TITLE) {
+            if (!resolvedRemoteConfig.heroTitle || resolvedRemoteConfig.heroTitle === DUPLICATE_HERO_TITLE) {
                 delete resolvedRemoteConfig.heroTitle;
                 window.CONFIG.heroTitle = DEFAULT_HERO_TITLE;
             }

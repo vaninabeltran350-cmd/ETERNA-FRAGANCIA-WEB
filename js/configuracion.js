@@ -2,8 +2,8 @@
 // CONFIGURACIÓN - Variables globales
 // ==========================================
 
-const DEFAULT_HERO_TITLE = 'ETERNA FRAGANCIA';
-const LEGACY_HERO_TITLE = 'Todo lo que buscás, en un solo lugar';
+const DEFAULT_HERO_TITLE = 'Todo lo que buscás, en un solo lugar';
+const DUPLICATE_HERO_TITLE = 'ETERNA FRAGANCIA';
 
 const CONFIG = {
     // Datos de la tienda
@@ -40,7 +40,7 @@ function loadConfig() {
     }
 
     // No permitas que una configuración local antigua deje visible el título legado.
-    if (!CONFIG.heroTitle || CONFIG.heroTitle === LEGACY_HERO_TITLE) {
+    if (!CONFIG.heroTitle || CONFIG.heroTitle === DUPLICATE_HERO_TITLE) {
         CONFIG.heroTitle = DEFAULT_HERO_TITLE;
     }
 }
@@ -62,12 +62,6 @@ function saveConfig() {
 }
 
 function updatePublicHero() {
-    const eyebrow = document.querySelector('.hero-subtitle');
-    const title = document.querySelector('.hero-title');
-    const description = document.querySelector('.hero-description');
-    if (eyebrow) eyebrow.textContent = CONFIG.heroEyebrow || '';
-    if (title) title.textContent = CONFIG.heroTitle || DEFAULT_HERO_TITLE;
-    if (description) description.textContent = CONFIG.heroDescription || '';
     const hero = document.querySelector('.hero-banner');
     if (hero) {
         const publicHeroImage = new URL('HEADER PRINCIPAL.png', document.baseURI).href;
