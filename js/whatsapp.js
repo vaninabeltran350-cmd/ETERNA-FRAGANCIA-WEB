@@ -54,9 +54,27 @@ function generateCartWhatsAppMessage(cartItems) {
     return message;
 }
 
-function sendCartToWhatsApp(cartItems) {
+async function waitForOfficialStoreConfig() {
+    if (!window.supabaseConfigReady || typeof window.supabaseConfigReady.then !== 'function') {
+        return true;
+    }
+
+    const remoteConfig = await window.supabaseConfigReady;
+    if (window.SupabaseStoreConfig?.isConfigured && !remoteConfig?.whatsappNumber) {
+        return false;
+    }
+    return true;
+}
+
+async function sendCartToWhatsApp(cartItems) {
     if (!Array.isArray(cartItems) || cartItems.length === 0) {
         showToast('El carrito está vacío.', 'warning');
+        return false;
+    }
+
+    const hasOfficialConfig = await waitForOfficialStoreConfig();
+    if (!hasOfficialConfig) {
+        showToast('No se pudo cargar el número oficial de WhatsApp.', 'error');
         return false;
     }
 
@@ -238,3 +256,5 @@ function updateFooterData() {
     
     updateFooterLinks();
 }
+
+window.addEventListener('supabase-config-loaded', updateFooterData);
