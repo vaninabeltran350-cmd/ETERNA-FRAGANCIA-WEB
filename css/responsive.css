@@ -395,12 +395,12 @@
     
     /* Catálogo 2 Columnas */
     .products-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1rem;
     }
     
     .product-card-image-wrap {
-        height: 240px;
+        height: clamp(160px, 42vw, 190px);
     }
     
     .product-info {
@@ -785,6 +785,12 @@
     .footer-content {
         grid-template-columns: 1fr;
         gap: 1.75rem;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .footer-section {
+        min-width: 0;
     }
 }
 
@@ -830,7 +836,7 @@
     
     /* Grilla de 2 columnas compactas en móvil */
     .products-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.65rem;
     }
 
@@ -848,7 +854,7 @@
     }
     
     .product-card-image-wrap {
-        height: 240px;
+        height: 150px;
     }
     
     .product-info {
