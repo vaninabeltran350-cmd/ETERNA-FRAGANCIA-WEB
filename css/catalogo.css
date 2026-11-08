@@ -727,10 +727,15 @@
     max-width: 880px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, minmax(260px, 420px));
     justify-content: center;
     gap: clamp(1.75rem, 3vw, 3.25rem);
     margin-bottom: 2.25rem;
+}
+
+@media (min-width: 993px) {
+    .footer-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 .footer-section h3,
