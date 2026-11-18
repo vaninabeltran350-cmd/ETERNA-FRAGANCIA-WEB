@@ -64,7 +64,7 @@ function saveConfig() {
 function updatePublicHero() {
     const hero = document.querySelector('.hero-banner');
     if (hero) {
-        const publicHeroImage = new URL('HEADER PRINCIPAL.png', document.baseURI).href;
+        const publicHeroImage = new URL('HEADER PRINCIPAL.webp', document.baseURI).href;
         hero.style.setProperty('--hero-image', `url("${publicHeroImage}")`);
         hero.classList.add('has-hero-image');
     }

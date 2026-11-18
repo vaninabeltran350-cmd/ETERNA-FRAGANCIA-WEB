@@ -21,7 +21,8 @@ const legacyScripts = [
 ];
 
 const publicAssets = [
-  'HEADER PRINCIPAL.png'
+  'HEADER PRINCIPAL.png',
+  'HEADER PRINCIPAL.webp'
 ];
 
 function copyLegacyScripts() {

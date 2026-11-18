@@ -385,12 +385,25 @@ function getProductImages(product) {
     return [...new Set(sources.map((source) => String(source ?? '').trim()).filter(Boolean))];
 }
 
+function loadProductCarouselImage(image) {
+    if (!image || image.dataset.interactionLoaded === 'true' || image.getAttribute('src')) return;
+    const source = image.dataset.src;
+    if (!source) return;
+
+    // Marcar antes de asignar src evita solicitudes duplicadas si el usuario
+    // navega rápidamente entre los slides.
+    image.dataset.interactionLoaded = 'true';
+    image.loading = 'eager';
+    image.src = source;
+}
+
 function setProductCarouselIndex(carousel, nextIndex) {
     const slides = carousel?.querySelector('.product-image-track');
     const dots = [...(carousel?.querySelectorAll('.product-image-dot') || [])];
     const total = dots.length;
     if (!slides || total < 2) return;
     const index = ((nextIndex % total) + total) % total;
+    loadProductCarouselImage(slides.querySelectorAll('.product-image')[index]);
     carousel.dataset.carouselIndex = String(index);
     slides.style.transform = `translateX(-${index * (100 / total)}%)`;
     dots.forEach((dot, dotIndex) => {
@@ -479,7 +492,7 @@ function renderProductCard(product, isPriority = false) {
     const hasImageCarousel = imageSources.length > 1;
     const slidesHtml = imageSources.map((source, index) => `
                     <div class="product-image-slide">
-                        <img src="${getOptimizedImageUrl(source, 500, 500)}"
+                        <img ${index === 0 ? `src="${getOptimizedImageUrl(source, 500, 500)}"` : `data-src="${getOptimizedImageUrl(source, 500, 500)}"`}
                              alt="${product.nombre} - imagen ${index + 1} de ${imageSources.length}"
                              class="product-image"
                              width="500"
